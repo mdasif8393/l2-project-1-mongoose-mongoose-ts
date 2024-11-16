@@ -1,13 +1,18 @@
 import express, { Request, Response } from "express";
 const app = express();
-app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+// parsers
+app.use(express.json());
+app.use(express.text());
+
+app.get("/:userId", (req: Request, res: Response) => {
   res.send("Hello World!");
+  console.log(req.params);
 });
 
 app.post("/", (req: Request, res: Response) => {
-  res.json(req.body);
+  console.log(req.body);
+  res.json("Got data");
 });
 
 export default app;

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send("Hello World!!");
 });
 app.post("/", (req, res) => {
     res.json(req.body);
