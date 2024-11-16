@@ -50,6 +50,13 @@ app.post("/", (req: Request, res: Response) => {
   res.json("Got data");
 });
 
+app.all("*", (req: Request, res: Response) => {
+  res.status(400).json({
+    success: false,
+    message: "Route is not found",
+  });
+});
+
 // global error handler
 app.use("*", (error: any, req: Request, res: Response, next: NextFunction) => {
   if (error) {
